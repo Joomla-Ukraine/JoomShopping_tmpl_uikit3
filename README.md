@@ -1,0 +1,1 @@
+# JoomShopping_tmpl_uikit3
