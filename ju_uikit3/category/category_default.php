@@ -15,7 +15,7 @@ defined('_JEXEC') or die();
 echo $this->_tmp_category_html_start;
 
 ?>
-	<h1 class="uk-article-title">
+	<h1 class="uk-article-title uk-margin-remove">
 		<?php echo $this->category->name; ?>
 	</h1>
 

@@ -20,17 +20,17 @@ echo $this->_tmp_maincategory_html_start;
 
 ?>
 <?php if($this->params->get('show_page_heading') && $this->params->get('page_heading')) : ?>
-	<h1 class="uk-article-title">
+	<h1 class="uk-article-title uk-margin-remove">
 		<?php echo $this->params->get('page_heading'); ?>
 	</h1>
 <?php endif; ?>
 
 <?php if(count($this->categories)) : ?>
-	<ul class="uk-grid-medium uk-grid-match uk-grid" data-uk-height-match="target: li > .uk-card" data-uk-grid>
+	<ul class="uk-grid-medium uk-grid-match uk-grid" data-uk-height-match="target: li > .js-img" data-uk-grid>
 		<?php foreach($this->categories as $k => $category) : ?>
 			<li class="uk-width-1-1 uk-width-1-2@s uk-width-1-<?php echo $this->count_category_to_row; ?>@m">
-				<a href="<?php echo $category->category_link; ?>" class="uk-link-reset uk-card uk-card-default uk-card-small">
-					<div class="uk-card-media-top uk-text-center">
+				<div class="js-img uk-position-relative uk-background-muted uk-text-center">
+					<a href="<?php echo $category->category_link; ?>" class="uk-link-reset uk-transition-toggle uk-display-block">
 						<div class="uk-inline-clip uk-transition-toggle">
 							<img
 									class="uk-transition-scale-up uk-transition-opaque"
@@ -38,16 +38,19 @@ echo $this->_tmp_maincategory_html_start;
 									alt="<?php echo htmlspecialchars($category->name); ?>"
 							>
 						</div>
-					</div>
-					<div class="uk-card-body">
-						<div class="uk-h4">
+					</a>
+				</div>
+				<div class="uk-margin">
+					<div class="uk-h5 uk-margin-remove">
+						<a href="<?php echo $product->product_link ?>" class="uk-link-reset">
 							<?php echo $category->name; ?>
-						</div>
-						<div class="uk-text">
-							<?php echo $category->short_description; ?>
-						</div>
+						</a>
 					</div>
-				</a>
+					<div class="uk-text-small uk-text-muted">
+						<?php echo $category->short_description; ?>
+					</div>
+				</div>
+
 			</li>
 		<?php endforeach; ?>
 	</ul>
